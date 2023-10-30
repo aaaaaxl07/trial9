@@ -72,7 +72,7 @@ def menu():
     os.system('clear')
     print (logo4)
     print ('[1] New Account Generator')
-    print (47*'-')
+    print (56*'-')
     sel = input('Select: ')
     if sel in['1', '01']:
         create().start()
@@ -91,16 +91,17 @@ class create:
         print (logo4)
         print ('[1] BRP Accounts')
         print ('[2] GRP Accounts')
-        print (47*'-')
+        print (56*'-')
         gen = input('Choose: ')
-        print (47*'-')
+        print (56*'-')
         if gen in ['1', '01']:
             self.gender.append('boy')
         elif gen in ['2', '02']:
             self.gender.append('girl')
         else:
             self.gender.append('boy')
-        print ('Example 1000, 2000, 5000, 10000')
+        print ('Example: 1000, 2000, 5000, 10000')
+        print (56*'-')
         lim = int(input('Choose Quantity: '))
         os.system('clear')
         print (logo4)
@@ -139,6 +140,8 @@ class create:
             'upgrade-insecure-requests': '1',
             'user-agent': agent,
         }
+        print(' [•] Use airplane mode if no result. ')
+        print (56*'-')
         OO = '\033[0;97m'
         for x in range(lim):
             self.loop += 1
@@ -223,7 +226,7 @@ class create:
                 cok = self.ses.cookies.get_dict()
                 if 'checkpoint' in getts.url:
                     cp.append(email+passw)
-                    print ('\r\033[1;33m[CHECKPOINT] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
+                    print ('\r\033[1;33m [CHECKPOINT] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
                 dbl = ['fb_dtsg', 'jazoest', 'flow', 'next', 'nux_source']
                 for x in BeautifulSoup(getts.text, 'html.parser').find_all('form', {'method': 'post'}):
                     if '/login/device-based/update-nonce/' in str(x):
@@ -249,11 +252,11 @@ class create:
                                 if 'checkpoint' in rex.url:
                                     cok = self.ses.cookies.get_dict()
                                     cp.append(email+passw)
-                                    print ('\r\033[1;33m[CHECKPOINT] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
+                                    print ('\r\033[1;33m [CHECKPOINT] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
                                 else:
                                     coki = (";").join([ "%s=%s" % (key, value) for key, value in self.ses.cookies.get_dict().items() ])
                                     cok = self.ses.cookies.get_dict()
-                                    print ('\r\033[1;32m[ALEX-ALIVE] '+cok['c_user']+' | '+passw+' | '+coki+'\033[0;97m     ')
+                                    print ('\r\033[1;32m [ALEX-ALIVE] '+cok['c_user']+' | '+passw+' | '+coki+'\033[0;97m     ')
                                     ok.append(email+passw)
             except requests.exceptions.ConnectionError:
                 time.sleep(1)
@@ -261,9 +264,9 @@ class create:
             except Exception as e:
                 pass
         print ('process has been completed')
-        print (47*'-')
+        print (56*'-')
         print ('\033[1;32mTotal ids > ALIVE/' +str(len(ok)) + ' CHECKPOINT/' + str(len(cp)))
-        print (47*'-')
+        print (56*'-')
         input('back')
         menu()
 menu()
